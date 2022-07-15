@@ -13,7 +13,7 @@ import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   { path: 'ajouterAdmin', component: AjouterAdminComponent },
-  { path: 'dashboard', component: DashboardComponent },
+  { path: 'dashboard', component: DashboardComponent, data: { title: 'profile' } },
   { path: 'admins', component: AdminsComponent },
   { path: 'entreprises', component: EntreprisesComponent },
   { path: 'formateurs', component: FormateursComponent },
