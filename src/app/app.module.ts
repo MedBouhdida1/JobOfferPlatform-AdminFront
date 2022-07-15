@@ -8,6 +8,14 @@ import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FooterComponent } from './footer/footer.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AdminsComponent } from './admins/admins.component';
+import { EntreprisesComponent } from './entreprises/entreprises.component';
+import { FormateursComponent } from './formateurs/formateurs.component';
+import { OffresComponent } from './offres/offres.component';
+import { ContactComponent } from './contact/contact.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { ForgotpassComponent } from './forgotpass/forgotpass.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +24,15 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     HeaderComponent,
     SidebarComponent,
     FooterComponent,
-    DashboardComponent
+    DashboardComponent,
+    AdminsComponent,
+    EntreprisesComponent,
+    FormateursComponent,
+    OffresComponent,
+    ContactComponent,
+    LoginComponent,
+    RegisterComponent,
+    ForgotpassComponent,
   ],
   imports: [
     BrowserModule,
