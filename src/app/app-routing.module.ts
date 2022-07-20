@@ -12,6 +12,7 @@ import { OffresComponent } from './offres/offres.component';
 import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
+  { path: '', component: LoginComponent },
   { path: 'ajouterAdmin', component: AjouterAdminComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'admins', component: AdminsComponent },
@@ -19,7 +20,6 @@ const routes: Routes = [
   { path: 'formateurs', component: FormateursComponent },
   { path: 'offres', component: OffresComponent },
   { path: 'contact', component: ContactComponent },
-  { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'forgotpassword', component: ForgotpassComponent }
 ];
