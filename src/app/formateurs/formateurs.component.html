@@ -29,41 +29,40 @@
                     </div>
 
                     <div class="card-body">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Name</th>
-                                    <th>#</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Smartphones</td>
-                                    <td>
-                                        <a href="./category-update.html" class="btn btn-sm btn-warning">
-                                            <i class="fas fa-edit"></i>
-                                        </a>
-                                        <button class="btn btn-sm btn-danger">
-                                            <i class="fas fa-trash-alt"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Laptops</td>
-                                    <td>
-                                        <a href="./category-update.html" class="btn btn-sm btn-warning">
-                                            <i class="fas fa-edit"></i>
-                                        </a>
-                                        <button class="btn btn-sm btn-danger">
-                                            <i class="fas fa-trash-alt"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div *ngIf="numberFormateur==0;else show">
+                            <h2 class="text-center">Aucune donneés disponible</h2>
+                        </div>
+                        <ng-template #show>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Nom</th>
+                                        <th>Prenom</th>
+                                        <th>Email</th>
+                                        <th>numero Telephone</th>
+                                        <th>Action</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let formateur of listeFormateur">
+                                        <td>{{formateur.id}}</td>
+                                        <td>{{formateur.nom}}</td>
+                                        <td>{{formateur.prenom}}</td>
+                                        <td>{{formateur.email}}</td>
+                                        <td>{{formateur.numeroTel}}</td>
+                                        <td>
+
+                                            <button class="btn btn-sm btn-danger"
+                                                (click)="supprimerFormateur(formateur)">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </ng-template>
                     </div>
                 </div>
             </div>

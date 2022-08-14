@@ -29,40 +29,54 @@
                     </div>
 
                     <div class="card-body">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Name</th>
-                                    <th>#</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Smartphones</td>
-                                    <td>
-                                        <a href="./category-update.html" class="btn btn-sm btn-warning">
-                                            <i class="fas fa-edit"></i>
-                                        </a>
-                                        <button class="btn btn-sm btn-danger">
-                                            <i class="fas fa-trash-alt"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Laptops</td>
-                                    <td>
-                                        <a href="./category-update.html" class="btn btn-sm btn-warning">
-                                            <i class="fas fa-edit"></i>
-                                        </a>
-                                        <button class="btn btn-sm btn-danger">
-                                            <i class="fas fa-trash-alt"></i>
-                                        </button>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div *ngIf="numberEntreprises==0;else show">
+                            <h2 class="text-center">Aucune donneés disponible</h2>
+                        </div>
+                        <ng-template #show>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>id</th>
+                                        <th>nom</th>
+                                        <th>email</th>
+                                        <th>Etat</th>
+                                        <th>Logo</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let entreprise of listeEntreprise">
+                                        <td>{{entreprise.id}}</td>
+                                        <td>{{entreprise.nom}}</td>
+                                        <td>{{entreprise.email}}</td>
+                                        <td *ngIf="entreprise.etat==0;else sh" style="    color: #186fc9;
+                                        border-color: #186fc9;
+                                        background-color: #f1f7fc;">En cours</td>
+                                        <ng-template #sh>
+                                            <td style="    border-color: #26ae62;
+                                            background-color: #e9fff3;
+                                            color: #26ae62;">Accepte</td>
+                                        </ng-template>
+                                        <td><img *ngIf="entreprise.logo;else img" [src]="entreprise.logo" width="120px"
+                                                height="100px"></td>
+                                        <ng-template #img><img width="100px" height="100px"
+                                                src="https://thumbs.dreamstime.com/b/no-image-available-icon-flat-vector-no-image-available-icon-flat-vector-illustration-132482953.jpg">
+                                        </ng-template>
+                                        <td>
+                                            <button *ngIf="entreprise.etat==0" class="btn btn-sm btn-success "
+                                                (click)="modifierEntreprise(entreprise.id)" title="Accepter">
+                                                <i class="fa fa-check-square-o"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-danger"
+                                                (click)="supprimerEntreprise(entreprise)">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </ng-template>
                     </div>
                 </div>
             </div>

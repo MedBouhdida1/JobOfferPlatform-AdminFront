@@ -1,12 +1,15 @@
-export class Formateur {
+export class Contact {
+
+
 
     constructor(
+
         public id: number,
         public nom: string,
         public prenom: string,
-        public numeroTel: string,
         public email: string,
-        public mdp: string
+        public sujet: string,
+        public msg: string
     ) {
 
     }

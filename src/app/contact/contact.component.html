@@ -29,40 +29,32 @@
                     </div>
 
                     <div class="card-body">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Name</th>
-                                    <th>#</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Smartphones</td>
-                                    <td>
-                                        <a href="./category-update.html" class="btn btn-sm btn-warning">
-                                            <i class="fas fa-edit"></i>
-                                        </a>
-                                        <button class="btn btn-sm btn-danger">
-                                            <i class="fas fa-trash-alt"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Laptops</td>
-                                    <td>
-                                        <a href="./category-update.html" class="btn btn-sm btn-warning">
-                                            <i class="fas fa-edit"></i>
-                                        </a>
-                                        <button class="btn btn-sm btn-danger">
-                                            <i class="fas fa-trash-alt"></i>
-                                        </button>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div *ngIf="numberContact==0;else show">
+                            <h2 class="text-center">Aucune donneés disponible</h2>
+                        </div>
+                        <ng-template #show>
+
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Nom</th>
+                                        <th>Email</th>
+                                        <th>Sujet</th>
+                                        <th>Message</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let contact of listeContact ">
+                                        <td>{{contact.id}}</td>
+                                        <td>{{contact.nom}}</td>
+                                        <td>{{contact.email}}</td>
+                                        <td>{{contact.sujet}}</td>
+                                        <td>{{contact.msg}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </ng-template>
                     </div>
                 </div>
             </div>

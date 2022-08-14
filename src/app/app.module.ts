@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AjouterAdminComponent } from './ajouter-admin/ajouter-admin.component';
@@ -16,7 +15,11 @@ import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ForgotpassComponent } from './forgotpass/forgotpass.component';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { NgToastModule } from 'ng-angular-popup';
+import { ModifieradminComponent } from './modifieradmin/modifieradmin.component';
+import { ProfileComponent } from './profile/profile.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,10 +36,16 @@ import { ForgotpassComponent } from './forgotpass/forgotpass.component';
     LoginComponent,
     RegisterComponent,
     ForgotpassComponent,
+    ModifieradminComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    NgToastModule
   ],
   providers: [],
   bootstrap: [AppComponent]

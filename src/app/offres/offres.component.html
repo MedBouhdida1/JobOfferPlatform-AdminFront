@@ -27,43 +27,68 @@
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                         <h6 class="m-0 font-weight-bold text-primary">Listes des offres</h6>
                     </div>
-
-                    <div class="card-body">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Name</th>
-                                    <th>#</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Smartphones</td>
-                                    <td>
-                                        <a href="./category-update.html" class="btn btn-sm btn-warning">
-                                            <i class="fas fa-edit"></i>
-                                        </a>
-                                        <button class="btn btn-sm btn-danger">
-                                            <i class="fas fa-trash-alt"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Laptops</td>
-                                    <td>
-                                        <a href="./category-update.html" class="btn btn-sm btn-warning">
-                                            <i class="fas fa-edit"></i>
-                                        </a>
-                                        <button class="btn btn-sm btn-danger">
-                                            <i class="fas fa-trash-alt"></i>
-                                        </button>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div *ngIf="numberOffres==0;else show">
+                        <h2 class="text-center">Aucune donneés disponible</h2>
                     </div>
+                    <ng-template #show>
+                        <div class="card-body">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Titre</th>
+                                        <th>Site Internet</th>
+                                        <th>Type</th>
+                                        <th>dateExpir</th>
+                                        <th>datePub</th>
+                                        <th>Etat</th>
+                                        <th>Logo</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <tr *ngFor="let offre of listeOffres">
+                                        <td>{{offre.id}}</td>
+                                        <td>{{offre.titre}}</td>
+                                        <td>{{offre.site}}</td>
+                                        <td>{{offre.type}}</td>
+                                        <td>{{offre.dateExpir}}</td>
+                                        <td>{{offre.datePub}}</td>
+                                        <td *ngIf="offre.etat==0;else sh" style="    color: #186fc9;
+                                        border-color: #186fc9;
+                                        background-color: #f1f7fc;">En cours
+                                        </td>
+                                        <ng-template #sh>
+                                            <td style="    border-color: #26ae62;
+                                            background-color: #e9fff3;
+                                            color: #26ae62;">Accepte</td>
+                                        </ng-template>
+                                        <td><img *ngIf="offre.logo;else image" [src]="offre.logo" alt="" width="100px"
+                                                height="100px"></td>
+                                        <ng-template #image><img
+                                                src="https://thumbs.dreamstime.com/b/no-image-available-icon-flat-vector-no-image-available-icon-flat-vector-illustration-132482953.jpg"
+                                                width="100px" height="100px">
+                                        </ng-template>
+
+                                        <td>
+                                            <button *ngIf="offre.etat==0" class="btn btn-sm btn-success "
+                                                (click)="modifierOffre(offre.id)" title="Accepter">
+                                                <i class="fa fa-check-square-o"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-danger" (click)="supprimerOffre(offre)"
+                                                title="Refuser">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+
+                                        </td>
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </ng-template>
                 </div>
             </div>
         </div>

@@ -1,39 +1,20 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="./../index.html">Start Bootstrap</a>
+        <a class="navbar-brand" href="./../index.html">Espace administrateur</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
             aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="./../index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./../index.html">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./../index.html">Contact</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./dashboard.html">Dashboard</a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="#">
-                        <i class="fas fa-shopping-cart"></i>
-                        <span id="cart-number" class="badge badge-light badge-pill">0</span>
-                    </a>
-                </li>
+
                 <li class="nav-item">
                     <a class="btn btn-sm btn-info mt-1" routerLink="/login">Login</a>
                 </li>
                 <li class="nav-item">
                     <a class="btn btn-sm btn-light mx-3 mt-1" routerLink="/register">Register</a>
                 </li>
-                <li class="nav-item">
-                    <a class="btn btn-sm btn-danger mt-1" href="./login.html">Logout</a>
-                </li>
+
             </ul>
         </div>
     </div>
@@ -56,20 +37,31 @@
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                 </div>
-                                <form class="user">
+                                <form class="user" [formGroup]="loginForm" (ngsubmit)="loginAdmin()">
                                     <div class="form-group">
                                         <input type="email" class="form-control form-control-user"
                                             id="exampleInputEmail" aria-describedby="emailHelp"
-                                            placeholder="Enter Email Address...">
+                                            placeholder="Enter Email Address..." formControlName="email">
+                                    </div>
+                                    <div *ngIf="email?.touched && email?.invalid">
+                                        <small class="text-danger" *ngIf="email?.errors?.['required']">Email
+                                            est obligatoire</small>
+                                        <small class="text-danger" *ngIf="email?.errors?.['email']">Respecter le format
+                                            de l'Adresse email</small>
+
                                     </div>
                                     <div class="form-group">
                                         <input type="password" class="form-control form-control-user"
-                                            id="exampleInputPassword" placeholder="Password">
+                                            id="exampleInputPassword" placeholder="Password" formControlName="mdp">
                                     </div>
+                                    <div *ngIf="mdp?.touched && mdp?.invalid">
+                                        <small class="text-danger" *ngIf="mdp?.errors?.['required']">Mot de passe
+                                            est obligatoire</small>
 
-                                    <a href="./../index.html" class="btn btn-primary btn-user btn-block">
-                                        Login
-                                    </a>
+                                    </div>
+                                    <button type="submit" (click)="loginAdmin()"
+                                        class="btn btn-primary btn-user btn-block">
+                                        S'inscrire</button>
 
                                 </form>
                                 <hr>

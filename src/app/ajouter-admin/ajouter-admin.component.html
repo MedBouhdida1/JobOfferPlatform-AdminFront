@@ -28,30 +28,49 @@
                     </div>
 
                     <div class="card-body">
-                        <form>
+                        <form [formGroup]="addAdminForm" (ngsubmit)="addAdmin()">
                             <div class="form-group">
                                 <label for="name" id="name">Nom : </label>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" formControlName="nom">
+                            </div>
+                            <div *ngIf="nom?.touched && nom?.invalid">
+                                <small class="text-danger" *ngIf="nom?.errors?.['required']">Nom
+                                    est obligatoire</small>
+
                             </div>
                             <div>
                                 <div class="form-group">
                                     <label for="description" id="desc">Prenom : </label>
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" formControlName="prenom">
+                                </div>
+                                <div *ngIf="prenom?.touched && prenom?.invalid">
+                                    <small class="text-danger" *ngIf="prenom?.errors?.['required']">Prenom
+                                        est obligatoire</small>
+
                                 </div>
                                 <div class="form-group">
-                                    <label for="price" id="price">Price : </label>
-                                    <input type="number" class="form-control">
+                                    <label for="email" id="email">email : </label>
+                                    <input type="email" class="form-control" formControlName="email">
+                                </div>
+                                <div *ngIf="email?.touched && email?.invalid">
+                                    <small class="text-danger" *ngIf="email?.errors?.['required']">Email
+                                        est obligatoire</small>
+                                    <small class="text-danger" *ngIf="email?.errors?.['email']">Respecter le format
+                                        de l'Adresse email</small>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="category" id="price">Category : </label>
-                                    <select class="custom-select">
-                                        <option selected>Choose category</option>
-                                        <option>Smartphones</option>
-                                        <option>Laptops</option>
-                                    </select>
+                                    <label for="password" id="password">mot de passe : </label>
+                                    <input type="password" class="form-control" formControlName="mdp">
+
                                 </div>
-                                <button class="btn btn-sm btn-primary mt-3">Add</button>
+                                <div *ngIf="mdp?.touched && mdp?.invalid">
+                                    <small class="text-danger" *ngIf="mdp?.errors?.['required']">Mot de passe
+                                        est obligatoire</small>
+
+                                </div>
+                                <button type="submit" (click)="addAdmin()" class="btn btn-primary btn-user btn-block">
+                                    Ajouter admin</button>
                             </div>
                         </form>
                     </div>
