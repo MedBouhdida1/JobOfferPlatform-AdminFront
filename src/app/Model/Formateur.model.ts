@@ -6,7 +6,8 @@ export class Formateur {
         public prenom: string,
         public numeroTel: string,
         public email: string,
-        public mdp: string
+        public mdp: string,
+        public photo: string
     ) {
 
     }

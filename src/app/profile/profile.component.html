@@ -30,7 +30,7 @@
                     <div class="card-body">
                         <form (ngsubmit)="modifierAdmin()">
                             <div class="form-group">
-                                <label for="name" id="name">Nom : </label>
+                                <label for="name" id="name">Photo : </label>
                                 <input type="file" accept="image/*" (change)="onSelectFile($event) "
                                     class=" form-control">
                                 <img [src]="imgURL" height="200" *ngIf="imgURL">

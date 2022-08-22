@@ -6,7 +6,8 @@ export class Entreprise {
         public email?: string,
         public etat?: number,
         public mdp?: string,
-        public logo?: string
+        public logo?: string,
+        public date?: string
     ) {
 
     }

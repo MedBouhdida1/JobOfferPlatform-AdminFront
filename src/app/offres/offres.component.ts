@@ -13,6 +13,7 @@ export class OffresComponent implements OnInit {
   listeOffres: Offres[]
   numberOffres: number = 0
   currentOffre = new Offres()
+  now = new Date()
   constructor(
     private route: Router,
 
@@ -34,6 +35,7 @@ export class OffresComponent implements OnInit {
       this.currentOffre = offre
       console.log(this.currentOffre)
       this.currentOffre.etat = 1;
+      this.currentOffre.datePub = this.now.toISOString().slice(0, 10)
       this.service.updateOffre(id, this.currentOffre).subscribe(() => {
         window.location.reload();
 

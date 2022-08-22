@@ -9,7 +9,8 @@ export class Contact {
         public prenom: string,
         public email: string,
         public sujet: string,
-        public msg: string
+        public msg: string,
+        public date: string
     ) {
 
     }
