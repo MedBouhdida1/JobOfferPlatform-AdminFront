@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Entreprise } from '../Model/Entreprise.model';
 import { CrudService } from '../service/crud.service';
+import { TmNgOdometerModule } from 'tm-ng-odometer';
+import { Observable, Observer, share } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,9 +14,14 @@ export class DashboardComponent implements OnInit {
   totalEntreprises: number = 0
   totalFormateurs: number = 0
   totalOffres: number = 0
+  public observable: Observable<boolean>;
+  private observer!: Observer<boolean>;
   constructor(
     private service: CrudService
-  ) { }
+  ) {
+    this.observable = new Observable<boolean>((observer: any) => this.observer = observer).pipe(share());
+    setTimeout(() => this.observer.next(true), 1000);
+  }
 
   ngOnInit(): void {
     var data = localStorage.getItem('id');

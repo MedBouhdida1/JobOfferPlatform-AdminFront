@@ -20,6 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgToastModule } from 'ng-angular-popup';
 import { ModifieradminComponent } from './modifieradmin/modifieradmin.component';
 import { ProfileComponent } from './profile/profile.component';
+import { TmNgOdometerModule } from 'tm-ng-odometer';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +47,8 @@ import { ProfileComponent } from './profile/profile.component';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    NgToastModule
+    NgToastModule,
+    TmNgOdometerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

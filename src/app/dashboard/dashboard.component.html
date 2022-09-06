@@ -11,7 +11,7 @@
 
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                    <h1 class="h3 mb-0 text-gray-800">Tableau de bord</h1>
                 </div>
                 <div class="row">
 
@@ -25,7 +25,10 @@
                                             Administrateur
 
                                         </div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{totalAdmins}}</div>
+                                        <tm-ng-odometer class="h5 mb-0 font-weight-bold text-gray-800"
+                                            [number]="totalAdmins" [config]=" { auto: false }"
+                                            [observable]="observable">
+                                        </tm-ng-odometer>
                                     </div>
                                     <div class="col-auto">
                                         <i class="fa fa-user fa-2x text-gray-300" aria-hidden="true"></i>
@@ -45,7 +48,10 @@
                                             Entreprises
 
                                         </div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{totalEntreprises}}</div>
+                                        <tm-ng-odometer class="h5 mb-0 font-weight-bold text-gray-800"
+                                            [number]="totalEntreprises" [config]=" { auto: false }"
+                                            [observable]="observable">
+                                        </tm-ng-odometer>
                                     </div>
                                     <div class="col-auto">
                                         <i class="fa fa-building fa-2x text-gray-300" aria-hidden="true"></i>
@@ -61,12 +67,15 @@
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Formateurs
+                                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Candidats
                                         </div>
                                         <div class="row no-gutters align-items-center">
                                             <div class="col-auto">
-                                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
-                                                    {{totalFormateurs}}</div>
+                                                <tm-ng-odometer class="h5 mb-0 font-weight-bold text-gray-800"
+                                                    [number]="totalFormateurs" [config]=" { auto: false }"
+                                                    [observable]="observable">
+                                                </tm-ng-odometer>
+
                                             </div>
 
                                         </div>
@@ -87,7 +96,10 @@
                                     <div class="col mr-2">
                                         <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Offres
                                         </div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{totalOffres}}</div>
+                                        <tm-ng-odometer class="h5 mb-0 font-weight-bold text-gray-800"
+                                            [number]="totalOffres" [config]=" { auto: false }"
+                                            [observable]="observable">
+                                        </tm-ng-odometer>
                                     </div>
                                     <div class="col-auto">
                                         <i class="fa fa-server  fa-2x text-gray-300" aria-hidden="true"></i>

@@ -37,13 +37,14 @@
                                     <tr>
                                         <th>Id</th>
                                         <th>Titre</th>
-                                        <th>Site Internet</th>
+                                        <!-- <th>Site Internet</th> -->
                                         <th>Type</th>
                                         <th>dateExpir</th>
                                         <th>datePub</th>
                                         <th>Etat</th>
-                                        <th>Logo</th>
+                                        <!-- <th>Logo</th> -->
                                         <th>Action</th>
+                                        <th>Entreprise</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -51,7 +52,7 @@
                                     <tr *ngFor="let offre of listeOffres">
                                         <td>{{offre.id}}</td>
                                         <td>{{offre.titre}}</td>
-                                        <td>{{offre.site}}</td>
+                                        <!-- <td>{{offre.site}}</td> -->
                                         <td>{{offre.type}}</td>
                                         <td>{{offre.dateExpir}}</td>
                                         <td>{{offre.datePub}}</td>
@@ -64,12 +65,12 @@
                                             background-color: #e9fff3;
                                             color: #26ae62;">Accepte</td>
                                         </ng-template>
-                                        <td><img *ngIf="offre.logo;else image" [src]="offre.logo" alt="" width="100px"
-                                                height="100px"></td>
-                                        <ng-template #image><img
+                                        <!-- <td><img *ngIf="offre.logo;else image" [src]="offre.logo" alt="" width="100px"
+                                                height="100px"></td> -->
+                                        <!-- <ng-template #image><img
                                                 src="https://thumbs.dreamstime.com/b/no-image-available-icon-flat-vector-no-image-available-icon-flat-vector-illustration-132482953.jpg"
                                                 width="100px" height="100px">
-                                        </ng-template>
+                                        </ng-template> -->
 
                                         <td>
                                             <button *ngIf="offre.etat==0" class="btn btn-sm btn-success "

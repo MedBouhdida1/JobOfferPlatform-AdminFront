@@ -12,7 +12,7 @@ import { CrudService } from '../service/crud.service';
 })
 export class HeaderComponent implements OnInit {
   now = new Date()
-  user: any;
+  userId: any;
   numberContact: number = 0
   listContact: Contact[]
   listOffre: Offres[]
@@ -20,17 +20,21 @@ export class HeaderComponent implements OnInit {
   listNotif: []
   numberOffre: number
   numberEntre: number
+  currentUser: any
 
   constructor(
     private service: CrudService,
     private router: Router
   ) {
-    this.user = this.service.userDetail()
   }
 
 
   ngOnInit(): void {
-    console.log(this.user);
+    this.userId = this.service.userDetail().id
+    console.log(this.userId);
+    this.service.getAdminById(this.userId).subscribe(data => {
+      this.currentUser = data
+    })
     this.service.getContact().subscribe(contact => {
       this.listContact = contact
       this.numberContact = contact.length;

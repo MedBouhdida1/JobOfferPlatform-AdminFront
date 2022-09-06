@@ -37,9 +37,9 @@ export class OffresComponent implements OnInit {
       this.currentOffre.etat = 1;
       this.currentOffre.datePub = this.now.toISOString().slice(0, 10)
       this.service.updateOffre(id, this.currentOffre).subscribe(() => {
-        window.location.reload();
 
       })
+      window.location.reload()
     })
 
 
@@ -47,6 +47,7 @@ export class OffresComponent implements OnInit {
 
   ngOnInit(): void {
     // this.service.loginRequired();
+    console.log(this.currentOffre)
 
     this.service.getOffres().subscribe(offre => {
       this.listeOffres = offre

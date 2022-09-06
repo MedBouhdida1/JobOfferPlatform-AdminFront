@@ -18,6 +18,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'ajouterAdmin', component: AjouterAdminComponent, canActivate: [AuthGuard] },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: '', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'admins', component: AdminsComponent, canActivate: [AuthGuard] },
   { path: 'entreprises', component: EntreprisesComponent, canActivate: [AuthGuard] },
   { path: 'formateurs', component: FormateursComponent, canActivate: [AuthGuard] },
