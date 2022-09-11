@@ -43,8 +43,9 @@
                                         <th>datePub</th>
                                         <th>Etat</th>
                                         <!-- <th>Logo</th> -->
-                                        <th>Action</th>
                                         <th>Entreprise</th>
+                                        <th>Action</th>
+
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -65,6 +66,9 @@
                                             background-color: #e9fff3;
                                             color: #26ae62;">Accepte</td>
                                         </ng-template>
+                                        <td><img width="40px" src="{{offre.entreprise.logo}}">{{offre.entreprise.nom}}
+                                        </td>
+
                                         <!-- <td><img *ngIf="offre.logo;else image" [src]="offre.logo" alt="" width="100px"
                                                 height="100px"></td> -->
                                         <!-- <ng-template #image><img

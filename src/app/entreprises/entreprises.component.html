@@ -38,9 +38,9 @@
                                     <tr>
                                         <th>id</th>
                                         <th>nom</th>
+                                        <th>Logo</th>
                                         <th>email</th>
                                         <th>Etat</th>
-                                        <th>Logo</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -48,6 +48,8 @@
                                     <tr *ngFor="let entreprise of listeEntreprise">
                                         <td>{{entreprise.id}}</td>
                                         <td>{{entreprise.nom}}</td>
+                                        <td><img *ngIf="entreprise.logo;else img" [src]="entreprise.logo" width="70px"
+                                                height="70px"></td>
                                         <td>{{entreprise.email}}</td>
                                         <td *ngIf="entreprise.etat==0;else sh" style="    color: #186fc9;
                                         border-color: #186fc9;
@@ -57,8 +59,7 @@
                                             background-color: #e9fff3;
                                             color: #26ae62;">Accepte</td>
                                         </ng-template>
-                                        <td><img *ngIf="entreprise.logo;else img" [src]="entreprise.logo" width="70px"
-                                                height="70px"></td>
+
                                         <ng-template #img><img width="70px" height="70px"
                                                 src="https://thumbs.dreamstime.com/b/no-image-available-icon-flat-vector-no-image-available-icon-flat-vector-illustration-132482953.jpg">
                                         </ng-template>
