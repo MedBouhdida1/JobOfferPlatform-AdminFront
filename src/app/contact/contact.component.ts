@@ -10,6 +10,7 @@ import { CrudService } from '../service/crud.service';
 export class ContactComponent implements OnInit {
   listeContact: Contact[]
   numberContact: number = 0
+  page: number = 1;
 
   constructor(
     private service: CrudService

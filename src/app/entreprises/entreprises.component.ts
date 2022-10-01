@@ -11,6 +11,8 @@ export class EntreprisesComponent implements OnInit {
   listeEntreprise: Entreprise[]
   numberEntreprises: number = 0;
   currentEntreprise = new Entreprise();
+  page: number = 1;
+
   constructor(
     private route: Router,
     private service: CrudService

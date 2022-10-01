@@ -50,7 +50,8 @@
                                 </thead>
                                 <tbody>
 
-                                    <tr *ngFor="let offre of listeOffres">
+                                    <tr
+                                        *ngFor="let offre of listeOffres | paginate:{itemsPerPage:4,currentPage:page,totalItems:numberOffres}">
                                         <td>{{offre.id}}</td>
                                         <td>{{offre.titre}}</td>
                                         <!-- <td>{{offre.site}}</td> -->
@@ -92,6 +93,9 @@
 
                                 </tbody>
                             </table>
+                            <pagination-controls (pageChange)="page=$event"
+                                class="my_pagination d-flex justify-content-center">
+                            </pagination-controls>
                         </div>
                     </ng-template>
                 </div>

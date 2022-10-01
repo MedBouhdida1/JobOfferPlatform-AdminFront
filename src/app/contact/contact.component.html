@@ -45,7 +45,8 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let contact of listeContact ">
+                                    <tr
+                                        *ngFor="let contact of listeContact | paginate:{itemsPerPage:4,currentPage:page,totalItems:numberContact} ">
                                         <td>{{contact.id}}</td>
                                         <td>{{contact.nom}}</td>
                                         <td>{{contact.email}}</td>
@@ -54,6 +55,9 @@
                                     </tr>
                                 </tbody>
                             </table>
+                            <pagination-controls (pageChange)="page=$event"
+                                class="my_pagination d-flex justify-content-center">
+                            </pagination-controls>
                         </ng-template>
                     </div>
                 </div>

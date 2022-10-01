@@ -46,7 +46,8 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let formateur of listeFormateur">
+                                    <tr
+                                        *ngFor="let formateur of listeFormateur  | paginate:{itemsPerPage:4,currentPage:page,totalItems:numberFormateur}">
                                         <td>{{formateur.id}}</td>
                                         <td>{{formateur.nom}}</td>
                                         <td>{{formateur.prenom}}</td>
@@ -66,6 +67,9 @@
                                     </tr>
                                 </tbody>
                             </table>
+                            <pagination-controls (pageChange)="page=$event"
+                                class="my_pagination d-flex justify-content-center">
+                            </pagination-controls>
                         </ng-template>
                     </div>
                 </div>

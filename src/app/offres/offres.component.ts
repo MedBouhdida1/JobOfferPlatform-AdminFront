@@ -14,6 +14,8 @@ export class OffresComponent implements OnInit {
   numberOffres: number = 0
   currentOffre = new Offres()
   now = new Date()
+  page: number = 1;
+
   constructor(
     private route: Router,
 

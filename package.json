@@ -23,6 +23,7 @@
     "angular-jwt": "^0.1.11",
     "angular2-jwt": "^0.2.3",
     "ng-angular-popup": "^0.1.2",
+    "ngx-pagination": "^6.0.2",
     "ngx-toastr": "^15.0.0",
     "rxjs": "~7.5.0",
     "tm-ng-odometer": "^1.1.8",

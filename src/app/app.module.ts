@@ -21,6 +21,7 @@ import { NgToastModule } from 'ng-angular-popup';
 import { ModifieradminComponent } from './modifieradmin/modifieradmin.component';
 import { ProfileComponent } from './profile/profile.component';
 import { TmNgOdometerModule } from 'tm-ng-odometer';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { TmNgOdometerModule } from 'tm-ng-odometer';
   ],
   imports: [
     BrowserModule,
+    NgxPaginationModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,

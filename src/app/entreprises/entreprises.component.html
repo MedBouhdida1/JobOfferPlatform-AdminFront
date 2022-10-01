@@ -45,7 +45,8 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let entreprise of listeEntreprise">
+                                    <tr
+                                        *ngFor="let entreprise of listeEntreprise | paginate:{itemsPerPage:4,currentPage:page,totalItems:numberEntreprises}">
                                         <td>{{entreprise.id}}</td>
                                         <td>{{entreprise.nom}}</td>
                                         <td><img *ngIf="entreprise.logo;else img" [src]="entreprise.logo" width="70px"
@@ -76,7 +77,12 @@
                                     </tr>
 
                                 </tbody>
+
+
                             </table>
+                            <pagination-controls (pageChange)="page=$event"
+                                class="my_pagination d-flex justify-content-center">
+                            </pagination-controls>
                         </ng-template>
                     </div>
                 </div>

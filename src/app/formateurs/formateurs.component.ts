@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 export class FormateursComponent implements OnInit {
   listeFormateur: Formateur[]
   numberFormateur: number = 0
+  page: number = 1;
+
   constructor(
     private route: Router,
 
