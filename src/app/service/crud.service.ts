@@ -124,5 +124,8 @@ export class CrudService {
     return this.http.put<Entreprise>(URL, entreprise, httpOption);
 
   }
+  email(email: any) {
+    return this.http.post<any>(this.apiUrl + "/feedback", email);
+  }
 
 }
